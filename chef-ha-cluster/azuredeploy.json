@@ -14,7 +14,7 @@
       "metadata": {
         "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
       },
-      "defaultValue": ""
+      "defaultValue": ""  
     },
     "_secretsLocation": {
       "type": "string",
@@ -510,7 +510,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('LeaderSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('LeaderSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
@@ -616,7 +616,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('FollowerSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('FollowerSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
@@ -724,7 +724,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('FollowerSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('FollowerSetupScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
@@ -846,7 +846,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('FE0setupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('FE0setupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
@@ -965,7 +965,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('FEsetupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('FEsetupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
@@ -1085,7 +1085,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('_artifactsLocation'), '/', variables('FEsetupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                "[concat(parameters('_artifactsLocation'), 'scripts/', variables('FEsetupscriptScriptFileName'), parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
