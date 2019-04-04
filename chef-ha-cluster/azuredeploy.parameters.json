@@ -9,7 +9,7 @@
             "value": "GEN-UNIQUE-13"
         },
         "sshKeyData": {
-            "value": "GEN-SSH-PUB-KEY"
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDB6txCE6Q0mACEqHw8nSB/pmtgtHAXgxqLTaUKFoRKpFRWyvMfeTKstsLT2CSBp6gMSIS9uutx0wGYUBEE+LV58ZiNxWHpM0mrNXHM/FUmNtd5JcpoqGLJWpfmX2FoKfzTFpZ+UuSuRBgjYQw2sdeBnr9LSaDcWGA1KLxL4tlEpheU+/2aKn1T2O81cD0lBWkq7uGmRNWPYrFONhETsYyQy6Euu13S3XaR7tdDAy9Bxt1kjjiKzG8sSvG0SDgn1FWoNoIblB2ogID0J2rSarpitQK6p4lmrlbov9og1htc+jyUodWCPaKLlxtsr8PNrex9zWboaRz3opMpSpX3ZJ57jhLwbK/lX8SwtGqAPVXfC/IrOXOC62zyXfiUeHa3nGVk2i+wkBW+ATZm7z3VT/ub2ACsXsM0jRT48FOZthUhqes900IXM91fm7ljEll8G29OGRHOXOBrxd0SqYj4PjHuC7ydSlDETVxeJnLc/+SXie/v3QNTXlaLv8dBl/MSrJXiR2oZ6X+KPKTigMKy7aDJflG7bdK+nqLGuE0j3oudrMPqJV6Eeemdv9D9u6zmSPC8Qc0eM7GJFU2Stlv8cO4s39CfLPs2lX9OQEtMdNU0g0q14jfdk4n++2QrSk3r8wYhaaYeZRSzIaBhPffpdxwaDm1pJweo7vZOqVdM6hIp8w=="
         }
     }
 }

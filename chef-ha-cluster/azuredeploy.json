@@ -155,6 +155,24 @@
       },
       "defaultValue": "core.windows.net"
     },
+    "virtualNetworkName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the existing VNET"
+      }
+    },
+    "virtualNetworkResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the existing VNET resource group"
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the subnet in the virtual network you want to use"
+      }
+    },
     "ubuntuVersion": {
       "type": "string",
       "defaultValue": "14.04.5-LTS",
@@ -193,38 +211,13 @@
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
     "subnetName": "chefsubnet",
     "subnetPrefix": "10.0.0.0/24",
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'),  variables('subnetName'))]",
+    "subnetRef": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'),  parameters('subnetName'))]",
     "virtualNetworkName": "chefvnet",
     "tagvalues": {
       "provider": "[toUpper('33194f91-eb5f-4110-827a-e95f640a9e46')]"
     }
   },
   "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
-      "location": "[variables('location')]",
-      "apiVersion": "2015-06-15",
-      "tags": {
-        "displayName": "ChefVirtualNetwork",
-        "provider": "[variables('tagvalues').provider]"
-      },
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"            
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
-            }
-          }
-        ]
-      }
-    },
     {
       "name": "[variables('chefbeName')]",
       "type": "Microsoft.Storage/storageAccounts",
@@ -426,9 +419,6 @@
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-      ],
       "tags": {
         "displayName": "BE0Nic",
         "provider": "[variables('tagvalues').provider]"
@@ -535,9 +525,6 @@
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-      ],
       "tags": {
         "displayName": "BE1Nic",
         "provider": "[variables('tagvalues').provider]"
@@ -644,9 +631,6 @@
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-      ],
       "tags": {
         "displayName": "BE2Nic",
         "provider": "[variables('tagvalues').provider]"
@@ -756,7 +740,6 @@
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
         "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
       ],
       "tags": {
@@ -879,7 +862,6 @@
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
         "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
       ],
       "tags": {
@@ -999,7 +981,6 @@
       "location": "[variables('location')]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
         "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
       ],
       "tags": {
